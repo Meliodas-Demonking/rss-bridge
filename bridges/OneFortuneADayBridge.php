@@ -1,7 +1,6 @@
 <?php
 class OneFortuneADayBridge extends BridgeAbstract {
 	const NAME = 'One Fortune a Day';
-	const URI = 'https://github.com/fulmeek';
 	const DESCRIPTION = 'Get a fortune quote every single day.';
 	const MAINTAINER = 'fulmeek';
 	const PARAMETERS = array(array(

@@ -3,7 +3,6 @@ class DemoBridge extends BridgeAbstract {
 
 	const MAINTAINER = 'teromene';
 	const NAME = 'DemoBridge';
-	const URI = 'http://github.com/rss-bridge/rss-bridge';
 	const DESCRIPTION = 'Bridge used for demos';
 
 	const PARAMETERS = array(
