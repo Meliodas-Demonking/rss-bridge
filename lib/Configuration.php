@@ -208,7 +208,10 @@ final class Configuration {
 			self::reportConfigurationError('admin', 'email', 'Is not a valid email address');
 
 		if(!is_bool(self::getConfig('admin', 'donations')))
-		self::reportConfigurationError('admin', 'donations', 'Is not a valid Boolean');
+			self::reportConfigurationError('admin', 'donations', 'Is not a valid Boolean');
+
+		if(!is_bool(self::getConfig('admin', 'show_updates')))
+			self::reportConfigurationError('admin', 'show_updates', 'Is not a valid Boolean');
 
 		if(!is_string(self::getConfig('error', 'output')))
 			self::reportConfigurationError('error', 'output', 'Is not a valid String');

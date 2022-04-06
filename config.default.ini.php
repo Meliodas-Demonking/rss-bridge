@@ -39,6 +39,11 @@ email = ""
 ; false = disabled
 donations = true
 
+; Display if there is a newer version available in the footer of the main page
+; true = enabled (default)
+; false = disable
+show_updates = true
+
 [proxy]
 
 ; Sets the proxy url (i.e. "tcp://192.168.0.0:32")

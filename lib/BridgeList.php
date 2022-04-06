@@ -153,18 +153,19 @@ EOD;
 	 */
 	private static function getFooter($totalBridges, $totalActiveBridges, $showInactive) {
 		$version = Configuration::getVersion();
-		$remoteversion = Configuration::getRemoteVersion();
-
 		if (substr($version, 0, 3) == 'git') {
 			$version = substr($version, -7);
 		}
-
-		if($remoteversion !== $version) {
-			$badgestate = 'Update_Available';
-			$badgecolor = 'red';
-		} else {
-			$badgestate = 'Version_Up--To--Date';
-			$badgecolor = 'green';
+		if (Configuration::getConfig('admin', 'show_updates')) {
+			$remoteversion = Configuration::getRemoteVersion();
+			if($remoteversion !== $version) {
+				$badgestate = 'Update_Available';
+				$badgecolor = 'red';
+			} else {
+				$badgestate = 'Version_Up--To--Date';
+				$badgecolor = 'green';
+			}
+			$version = "<img src=\"https://img.shields.io/badge/{$badgestate}-{$version}-{$badgecolor}\">";
 		}
 
 		$email = Configuration::getConfig('admin', 'email');
@@ -194,7 +195,7 @@ EOD;
 		return <<<EOD
 <section class="footer">
 	<a href="https://github.com/rss-bridge/rss-bridge">RSS-Bridge ~ Public Domain</a><br>
-	<p><img src="https://img.shields.io/badge/{$badgestate}-{$version}-{$badgecolor}"></p>
+	<p>{$version}</p>
 	{$totalActiveBridges}/{$totalBridges} active bridges.<br>
 	{$inactive}
 	{$admininfo}
